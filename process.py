@@ -68,7 +68,7 @@ def query_today(collection, date):
     """
 
     logger = logging.getLogger('stanford')
-    gt_date = date - datetime.timedelta(days=1)
+    gt_date = date - datetime.timedelta(days=14) #TODO: add as parameter
     posts = collection.find({"$and": [{"date_added": {"$lte": date}},
                                       {"date_added": {"$gt": gt_date}},
                                       {"stanford": 0}]})
